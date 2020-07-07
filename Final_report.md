@@ -88,4 +88,28 @@ eap Motion is a strong device that can senses human hand motion accurately in re
 ###### 3D Printing 
 Two specific wearable 3D Designs needed to be designed for the user. One was for specifically the accelerometer to limit movement on the body as the sensor could be very sensitive. This was designed as a Wristband and fitted for the sensors pins and mounting bracket. Second, the Raspberry Pi and mobile Battery Bank needed to be secured to the user in an unobtrusive way. This was designed first as a waistband mount, but was later changed to an Armband strap to reduce jumper cable length.
 
+------------------------------------------------------------------
+
+### 2. Process 
+
+#### 1) Development
+Development was led by JaeKwon. HaJun was in charge of detecting motion by using leapmotion.
+
+##### main process 
+In the main process, it is repeated to receive the values of the leap motion and the accelerator sensor. The values received would be processed through the controller. 
+1. In the controller, the object for playing musical instruments is initiated.
+2. In this object, there are functions for playing musical instruments depending on index and changing the internal variable for the effects including reverberation and distortion. 
+3. The controller uses this object after deciding what to do by received data. 
+4-1. By received data from accelerometer sensor and leap motion, it decides to play musical instruments. 
+4-2. By received data from leap motion, it decides to change the parameters for reverberation and distortion which is in the object for playing instruments.
+
+###### Leapmotion 
+The module, Gobot, offers diverse hand gesture functions that returns active value when the action is taken. However, due to the frequent update for the software of leap motion, it was not able to use those. We had to build up our own motion returns certain value. Since we wanted to make a special effect sound through leap motion, 3 respective motions mapping to each sounds was organized. It should have been very simple and easily understood to people, while at the same time showing the potential to be used in various ways depending on their preferences in the future. We conducted an experiment to see how the coordinates would be seen when the leap motion is being used. Based on these values, three actions were constructed. While the x and z values were fixed, only the y values were changed to make the sound of special effects, and the x and z values were changed respectively to change the effects of sound to reverb and distortion. 
+
+acc sensor
+send
+To process the value of accelerometer sensor, unsupervised learning model was used. we train it ourselves. We made the dataset for the model by doing two types of motion with wearing the accelerometer sensor. This training model does the classification of motion.
+receive
+When program receives the data from accelerometer sensor, it returns the sound index. If it returns all the value right after return the motion value, then it makes a problem which plays the instrument sounds several times for one motion. To solve this problem, it is developed to ignore the 5 values right after sensing the motion. The number of ignored value can be different depending on calibration.
+
 
