@@ -59,3 +59,19 @@ We used Python to control the main process and process for the accelerometer sen
 
 We used Go language to control the parameters that we can get by utilizing leap motion. We can synchronizes leap motion directly by using Go language. Go language has great module called Go bot and It has functions that adjust the coordinates perceived by leap motion to value appropriately.
 
+
+##### Module
+###### python
+
+<strong>Socket</strong> 
+
+We used socket communication to communicate with raspberry pi which is used for accelerometer sensor. There are many ways to communicate with Raspberry Pie, but in our project it was important to communicate quickly in real time, so we used the simplest method.
+
+<strong>Pygame</strong> 
+
+In our project, it was important to play musical instruments according to the input that occurred in real time. We used pygame for this purpose. Pygame does not wait until the sound is finished after playing the sound and, but performs the code immediately on the next line. It was convenient to use because there was no need for additional thread coding.
+Sklearn - Sklearn is a machine learning library for python. User motion was indistinguishable by the raw data of the accelerometer sensor. We solved this problem by using unsupervised learning.
+
+<strong>Go Bot</strong> 
+
+Go bot is a strong library that requires very simple setting to be used. The module provides the functions to control nearly 30 devices including leap motion. It offers simple structure code and it helps the user get as sense quickly. In particular, regarding Leap Motion, it provided functions related to various hand movements, but it was less accurate than expected, so we had to make the necessary actions by tuning the coordinate value parameters. Figure 3)
