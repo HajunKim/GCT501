@@ -95,7 +95,7 @@ Two specific wearable 3D Designs needed to be designed for the user. One was for
 #### 1) Development
 Development was led by JaeKwon. HaJun was in charge of detecting motion by using leapmotion.
 
-##### main process 
+#### main process 
 In the main process, it is repeated to receive the values of the leap motion and the accelerator sensor. The values received would be processed through the controller. 
 1. In the controller, the object for playing musical instruments is initiated.
 2. In this object, there are functions for playing musical instruments depending on index and changing the internal variable for the effects including reverberation and distortion. 
@@ -104,7 +104,7 @@ In the main process, it is repeated to receive the values of the leap motion and
 4-2. By received data from leap motion, it decides to change the parameters for reverberation and distortion which is in the object for playing instruments.
 
 ###### Leapmotion 
-The module, Gobot, offers diverse hand gesture functions that returns active value when the action is taken. However, due to the frequent update for the software of leap motion, it was not able to use those. We had to build up our own motion returns certain value. Since we wanted to make a special effect sound through leap motion, 3 respective motions mapping to each sounds was organized. It should have been very simple and easily understood to people, while at the same time showing the potential to be used in various ways depending on their preferences in the future. We conducted an experiment to see how the coordinates would be seen when the leap motion is being used. Based on these values, three actions were constructed. While the x and z values were fixed, only the y values were changed to make the sound of special effects, and the x and z values were changed respectively to change the effects of sound to reverb and distortion. 
+The module, Gobot, offers diverse hand gesture functions that returns active value when the action is taken. However, due to the frequent update for the software of leap motion, it was not able to use those. <em>We had to build up our own motion returns certain value.</em> Since we wanted to make a special effect sound through leap motion, 3 respective motions mapping to each sounds was organized. It should have been very simple and easily understood to people, while at the same time showing the potential to be used in various ways depending on their preferences in the future. We conducted an experiment to see how the coordinates would be seen when the leap motion is being used. Based on these values, three actions were constructed. While the x and z values were fixed, only the y values were changed to make the sound of special effects, and the x and z values were changed respectively to change the effects of sound to reverb and distortion. 
 
 acc sensor
 send
