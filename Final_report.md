@@ -10,8 +10,9 @@ Hajun Kim, Jaekwon Lim, Conor O’Malley
 
 ### 1. Summary
 
-##### 1) Software
-##### 2) Hardware
+##### 1) Concept
+##### 2) Software
+##### 3) Hardware
 
 ### 2. Process
 
@@ -38,3 +39,6 @@ The Instrument consists of Accelerometer sensors that transform the user’s mov
 The MoMu Platform is a digital space where users can share and collaborate with other artists. Users upload their work and artwork to the digital social media platform, and others can view, enjoy and remix their work. This organic community flow allows for the users to seek out unique sounds and dance moves that can inspire and encourage more creative music and rhythm. 
 
 <img src="https://user-images.githubusercontent.com/37058246/86719529-1d0c6880-c05f-11ea-8da1-72a726fca923.jpeg" width=30% height=30%>
+
+### Concept
+------------------------------------------------------------------
