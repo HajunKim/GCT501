@@ -27,7 +27,7 @@ Hajun Kim, Jaekwon Lim, Conor O’Malley
 ### 1. Summary 
 
 
-#### 1)Concept
+#### 1) Concept
 The MoMu consists of 2 technical concepts:
 a <strong>digital instrument</strong> that users can move to create music with, and a <strong>digital platform</strong> that allows others to collaborate and share with the music they have created.
 
@@ -43,5 +43,17 @@ The MoMu Platform is a digital space where users can share and collaborate with 
 
 <img src="https://user-images.githubusercontent.com/37058246/86719529-1d0c6880-c05f-11ea-8da1-72a726fca923.jpeg" width=30% height=30%>
 
-### Concept
 ------------------------------------------------------------------
+
+#### 1) Software
+
+##### Programming Language
+
+<img src="https://user-images.githubusercontent.com/37058246/86724476-c9504e00-c063-11ea-9f2d-14ce9caa7c8d.png" width=30% height=30%>
+<strong>python</strong>
+We used Python to control the main process and process for the accelerometer sensor. There were three main reasons for using Python. First, it is easy to modularize the program. Second, Libraries for communicating or playing sounds are well implemented. Finally, It is the most used programming language in raspberry pi.
+
+<img src="https://user-images.githubusercontent.com/37058246/86724488-ca817b00-c063-11ea-8479-2f6879de23ac.png" width=30% height=30%>
+<strong>Go</strong>
+We used Go language to control the parameters that we can get by utilizing leap motion. We can synchronizes leap motion directly by using Go language. Go language has great module called Go bot and It has functions that adjust the coordinates perceived by leap motion to value appropriately.
+
