@@ -47,7 +47,7 @@ The MoMu Platform is a digital space where users can share and collaborate with 
 
 #### 1) Software
 
-##### Programming Language
+#### Programming Language
 
 <img src="https://user-images.githubusercontent.com/37058246/86724476-c9504e00-c063-11ea-9f2d-14ce9caa7c8d.png" width=30% height=30%>
 <strong>python</strong>
@@ -60,7 +60,7 @@ We used Python to control the main process and process for the accelerometer sen
 We used Go language to control the parameters that we can get by utilizing leap motion. We can synchronizes leap motion directly by using Go language. Go language has great module called Go bot and It has functions that adjust the coordinates perceived by leap motion to value appropriately.
 
 
-##### Module
+#### Module
 ###### python
 
 <strong>Socket</strong> 
