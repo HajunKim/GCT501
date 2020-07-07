@@ -6,8 +6,23 @@ Hajun Kim, Jaekwon Lim, Conor O’Malley
 
 <img src="https://user-images.githubusercontent.com/37058246/86720950-7aed8000-c060-11ea-921b-9ddee04c3e1d.png" width=60% height=60%>
 
+## Contents
 
-## 1. Summary 
+### 1. Summary
+
+#### 1) Software
+
+#### 2) Hardware
+
+### 2. Process
+
+#### 1) Development 
+
+#### 2) Fabrication 
+
+#### 3) Presentation 
+
+### 3. Role of members  
 ------------------------------------------------------------------
 
 ### Concept
