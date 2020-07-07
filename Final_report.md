@@ -10,19 +10,17 @@ Hajun Kim, Jaekwon Lim, Conor O’Malley
 
 ### 1. Summary
 
-#### 1) Software
-
-#### 2) Hardware
+##### 1) Software
+##### 2) Hardware
 
 ### 2. Process
 
-#### 1) Development 
-
-#### 2) Fabrication 
-
-#### 3) Presentation 
+##### 1) Development 
+##### 2) Fabrication 
+##### 3) Presentation 
 
 ### 3. Role of members  
+
 ------------------------------------------------------------------
 
 ### Concept
