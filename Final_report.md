@@ -104,12 +104,42 @@ In the main process, it is repeated to receive the values of the leap motion and
 4-2. By received data from leap motion, it decides to change the parameters for reverberation and distortion which is in the object for playing instruments.
 
 ###### Leapmotion 
-The module, Gobot, offers diverse hand gesture functions that returns active value when the action is taken. However, due to the frequent update for the software of leap motion, it was not able to use those. <em>We had to build up our own motion returns certain value.</em> Since we wanted to make a special effect sound through leap motion, 3 respective motions mapping to each sounds was organized. It should have been very simple and easily understood to people, while at the same time showing the potential to be used in various ways depending on their preferences in the future. We conducted an experiment to see how the coordinates would be seen when the leap motion is being used. Based on these values, three actions were constructed. While the x and z values were fixed, only the y values were changed to make the sound of special effects, and the x and z values were changed respectively to change the effects of sound to reverb and distortion. 
+The module, Gobot, offers diverse hand gesture functions that returns active value when the action is taken. However, due to the frequent update for the software of leap motion, it was not able to use those. <strong>We had to build up our own motion returns certain value.</strong> Since we wanted to make a special effect sound through leap motion, 3 respective motions mapping to each sounds was organized. It should have been very simple and easily understood to people, while at the same time showing the potential to be used in various ways depending on their preferences in the future. We conducted an experiment to see how the coordinates would be seen when the leap motion is being used.
+Based on these values, three actions were constructed. While the x and z values were fixed, only the y values were changed to make the sound of special effects(figure 1), and the x and z values were changed respectively to change the effects of sound to reverb and distortion. (figure 2,3)
+
+
 
 acc sensor
 send
 To process the value of accelerometer sensor, unsupervised learning model was used. we train it ourselves. We made the dataset for the model by doing two types of motion with wearing the accelerometer sensor. This training model does the classification of motion.
 receive
 When program receives the data from accelerometer sensor, it returns the sound index. If it returns all the value right after return the motion value, then it makes a problem which plays the instrument sounds several times for one motion. To solve this problem, it is developed to ignore the 5 values right after sensing the motion. The number of ignored value can be different depending on calibration.
+connection with leap motion // For HAJUN
 
+connection with accelerometer sensor
+we used socket connection for sending the value of accelerometer sensor. Received part was developed to check the connection first before receiving the data continuously.
+
+2. Fabrication  - 3D Print designs and fabrication was led by Conor. All 3D Prints were printed from Professor Ahn’s Ultimaker3 3D Printer. 
+The 3D print components were first designed in Blender and Meshmixer, Sliced in Cura and printed with flexible TPU Filament, which matched specifications for wearable devices. The supports were created with Breakaway Filament, allowing for fast removal when paired with the flexible TPU. 
+The Wristband module was designed as one continuous piece that allowed for snapping in place. 
+The Armband was designed as three separate pieces, and used M3 screws to hold the two ends of the armbands to the center Pi Console. Then the Armband straps locked in place used snapback plastic design.
+
+
+3. Presentation - Presentation Slides and Organization was led by HaJun.
+The slides were first organized and a rough outline of the script was delegated across the team. 
+Next, the slides were designed and decorated while team members wrote their specific scripts to match presentation objectives. 
+Afterwards, slides were polished, combined and edited for continuity.
+Finally, the presentation was practiced as a team to match the format of the presentation when possible.
+
+------------------------------------------------------------------
+
+### 3. Role of Members 
+
+//Describe what and how each member did.
+
+HaJun // For HAJUN
+JaeKwon - Development
+JaeKwon was in charge of development of the main process and connecting with the accelerometer sensor.
+Conor - Digital Fabrication / 3D Printing
+Conor designed and 3D printed the accelerometer sensor bracelet and the Raspberry Pi/Battery Bank Armband
 
