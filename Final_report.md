@@ -10,7 +10,7 @@ Hajun Kim, Jaekwon Lim, Conor O’Malley
 1. Summary 
 ------------------------------------------------------------------
 
-#Concept
+# Concept
 The MoMu consists of 2 technical concepts: a digital instrument that users can move to create music with, and a digital platform that allows others to collaborate and share with the music they have created.
 
 
