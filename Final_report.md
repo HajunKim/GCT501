@@ -346,8 +346,6 @@ Finally, the presentation was practiced as a team to match the format of the pre
 
 ### 3. Role of Members 
 
-//Describe what and how each member did.
-
 HaJun - Leapmotion/ Presenter 
 Hajun was in charge of development of the leap motion part, which is tunning the parameters and sending values from go to python and made outline and flow for the PPT. 
 
