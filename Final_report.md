@@ -103,9 +103,9 @@ In the main process, it is repeated to receive the values of the leap motion and
 
 3. The controller uses this object after deciding what to do by received data. 
 
-4-1. By received data from accelerometer sensor and leap motion, it decides to play musical instruments. 
+4. By received data from accelerometer sensor and leap motion, it decides to play musical instruments. 
 
-4-2. By received data from leap motion, it decides to change the parameters for reverberation and distortion which is in the object for playing instruments.
+5. By received data from leap motion, it decides to change the parameters for reverberation and distortion which is in the object for playing instruments.
 
 ```python3
 
@@ -144,9 +144,11 @@ The module, Gobot, offers diverse hand gesture functions that returns active val
 
 2. Based on these values, three actions were constructed. 
 
-3-1. While the x and z values were fixed, only the y values were changed to make the sound of special effects(figure 1)
+3. While the x and z values were fixed, only the y values were changed to make the sound of special effects(figure 1)
 
-3-2. the x and z values were changed respectively to change the effects of sound to reverb and distortion. (figure 2,3)
+4. the x and z values were changed respectively to change the effects of sound to reverb and distortion. (figure 2,3)
+
+```Go 
 
 
 
@@ -180,9 +182,35 @@ When program receives the data from accelerometer sensor, it returns the sound i
 ```
 
 
-connection with leap motion // For HAJUN
+connection with leap motion
+We used csv file for sending certain motion value from GO language to python, Go language writes down the value in every 0.001 seconds and python read it by while statement. The implementation was seem working in real time.
+```GO
 
+        rows := [][]string{
+		
+                {strconv.FormatFloat(s.ws,'f',5,64)},
+		{strconv.FormatFloat(s.ad,'f',5,64)},
+                {strconv.FormatFloat(s.jk,'f',5,64)},
+                {strconv.FormatFloat(s.sense,'f',5,64)},
+	}
+ 
+	csvfile, err := os.Create("test.csv")
+ 
+	if err != nil {
+		log.Fatalf("failed creating file: %s", err)
+	}
+ 
+	csvwriter := csv.NewWriter(csvfile)
+ 
+	for _, row := range rows {
+		_ = csvwriter.Write(row)
+	}
+ 
+	csvwriter.Flush()
+ 
+        csvfile.Close()
 
+```
 connection with accelerometer sensor
 we used socket connection for sending the value of accelerometer sensor. Received part was developed to check the connection first before receiving the data continuously.
 
@@ -210,7 +238,7 @@ The Wristband module was designed as one continuous piece that allowed for snapp
 The Armband was designed as three separate pieces, and used M3 screws to hold the two ends of the armbands to the center Pi Console. Then the Armband straps locked in place used snapback plastic design.
 
 
-<img src="https://user-images.githubusercontent.com/37058246/86719715-49c08000-c05f-11ea-8909-19cee48fcc7b.png" width=15% height=15%>
+<img src="https://user-images.githubusercontent.com/37058246/86719715-49c08000-c05f-11ea-8909-19cee48fcc7b.png" width=30% height=30%>
 
 
 3. Presentation - Presentation Slides and Organization was led by HaJun.
