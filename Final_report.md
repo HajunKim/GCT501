@@ -350,8 +350,10 @@ Finally, the presentation was practiced as a team to match the format of the pre
 
 HaJun - Leapmotion/ Presenter 
 Hajun was in charge of development of the leap motion part, which is tunning the parameters and sending values from go to python and made outline and flow for the PPT. 
+
 JaeKwon - Development
 JaeKwon was in charge of development of the main process and connecting with the accelerometer sensor.
+
 Conor - Digital Fabrication / 3D Printing
 Conor designed and 3D printed the accelerometer sensor bracelet and the Raspberry Pi/Battery Bank Armband
 
