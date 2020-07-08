@@ -100,7 +100,9 @@ In the main process, it is repeated to receive the values of the leap motion and
 1. In the controller, the object for playing musical instruments is initiated.
 2. In this object, there are functions for playing musical instruments depending on index and changing the internal variable for the effects including reverberation and distortion. 
 3. The controller uses this object after deciding what to do by received data. 
+
 4-1. By received data from accelerometer sensor and leap motion, it decides to play musical instruments. 
+
 4-2. By received data from leap motion, it decides to change the parameters for reverberation and distortion which is in the object for playing instruments.
 
 ###### Leapmotion 
@@ -108,7 +110,9 @@ The module, Gobot, offers diverse hand gesture functions that returns active val
 
 1. We conducted an experiment to see how the coordinates would be seen when the leap motion is being used.
 2. Based on these values, three actions were constructed. 
+
 3-1. While the x and z values were fixed, only the y values were changed to make the sound of special effects(figure 1)
+
 3-2. the x and z values were changed respectively to change the effects of sound to reverb and distortion. (figure 2,3)
 
 
