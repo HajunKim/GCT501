@@ -356,6 +356,7 @@ Conor designed and 3D printed the accelerometer sensor bracelet and the Raspberr
 
 
 
-Demo 
+###Demo 
+
 <img src="http://img.youtube.com/vi/lOMEonkRy0w/0.jpg" width=30% height=30%>
 https://youtu.be/lOMEonkRy0w?t=0s
