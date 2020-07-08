@@ -250,7 +250,7 @@ When program receives the data from accelerometer sensor, it returns the sound i
 ```
 
 
-connection with leap motion
+###### connection with leap motion
 We used csv file for sending certain motion value from GO language to python, Go language writes down the value in every 0.001 seconds and python read it by while statement. The implementation was seem working in real time.
 ```GO
 
@@ -282,7 +282,7 @@ We used csv file for sending certain motion value from GO language to python, Go
         csvfile.Close()
 	}
 ```
-connection with accelerometer sensor
+###### connection with accelerometer sensor
 we used socket connection for sending the value of accelerometer sensor. Received part was developed to check the connection first before receiving the data continuously.
 
 ```python3
@@ -303,7 +303,7 @@ we used socket connection for sending the value of accelerometer sensor. Receive
 ```
 
 
-2. Fabrication  - 3D Print designs and fabrication was led by Conor. All 3D Prints were printed from Professor Ahn’s Ultimaker3 3D Printer. 
+#### 2. Fabrication  - 3D Print designs and fabrication was led by Conor. All 3D Prints were printed from Professor Ahn’s Ultimaker3 3D Printer. 
 The 3D print components were first designed in Blender and Meshmixer, Sliced in Cura and printed with flexible TPU Filament, which matched specifications for wearable devices. The supports were created with Breakaway Filament, allowing for fast removal when paired with the flexible TPU. 
 The Wristband module was designed as one continuous piece that allowed for snapping in place. 
 The Armband was designed as three separate pieces, and used M3 screws to hold the two ends of the armbands to the center Pi Console. Then the Armband straps locked in place used snapback plastic design.
@@ -312,7 +312,7 @@ The Armband was designed as three separate pieces, and used M3 screws to hold th
 <img src="https://user-images.githubusercontent.com/37058246/86719715-49c08000-c05f-11ea-8909-19cee48fcc7b.png" width=30% height=30%>
 
 
-3. Presentation - Presentation Slides and Organization was led by HaJun.
+#### 3. Presentation - Presentation Slides and Organization was led by HaJun.
 The slides were first organized and a rough outline of the script was delegated across the team. 
 Next, the slides were designed and decorated while team members wrote their specific scripts to match presentation objectives. 
 Afterwards, slides were polished, combined and edited for continuity.
