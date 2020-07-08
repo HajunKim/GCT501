@@ -222,13 +222,19 @@ class leapMotionSensor:
         return resultInt
 ```
 
-<img src="https://youtu.be/RlQEoJaLQRA?t=0s" width=30% height=10%>
+figure 1 
+<img src="http://img.youtube.com/vi/rSllRDDCVgc/0.jpg" width=30% height=30%>
+https://youtu.be/rSllRDDCVgc?t=0s
 
-(http://img.youtube.com/vi/RlQEoJaLQRA/0.jpg)](https://youtu.be/RlQEoJaLQRA?t=0s) 
+figure 2 
+<img src="http://img.youtube.com/vi/q3V8sEIf2Ts/0.jpg" width=30% height=30%>
+https://youtu.be/q3V8sEIf2Ts?t=0s
 
-(http://img.youtube.com/vi/RlQEoJaLQRA/0.jpg)](https://youtu.be/RlQEoJaLQRA?t=0s) 
+figure 3 
+<img src="http://img.youtube.com/vi/FsNO2g9wTgw/0.jpg" width=30% height=30%>
+https://youtu.be/FsNO2g9wTgw?t=0s
 
-(http://img.youtube.com/vi/RlQEoJaLQRA/0.jpg)](https://youtu.be/RlQEoJaLQRA?t=0s) 
+
 
 ###### acc sensor
 send
@@ -260,6 +266,13 @@ When program receives the data from accelerometer sensor, it returns the sound i
 
 ```
 
+figure 4
+<img src="http://img.youtube.com/vi/vXyvV4HwTuw/0.jpg" width=30% height=30%>
+https://youtu.be/vXyvV4HwTuw?t=0s
+
+figure 5
+<img src="http://img.youtube.com/vi/ojq4UcfpVTQ/0.jpg" width=30% height=30%>
+https://youtu.be/ojq4UcfpVTQ?t=0s
 
 ###### connection with leap motion
 We used csv file for sending certain motion value from GO language to python, Go language writes down the value in every 0.001 seconds and python read it by while statement. The implementation was seem working in real time.
@@ -341,3 +354,8 @@ JaeKwon was in charge of development of the main process and connecting with the
 Conor - Digital Fabrication / 3D Printing
 Conor designed and 3D printed the accelerometer sensor bracelet and the Raspberry Pi/Battery Bank Armband
 
+
+
+Demo 
+<img src="http://img.youtube.com/vi/lOMEonkRy0w/0.jpg" width=30% height=30%>
+https://youtu.be/lOMEonkRy0w?t=0s
