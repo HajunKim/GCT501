@@ -4,7 +4,7 @@ The new way of designing with Music
 ------------
 Hajun Kim, Jaekwon Lim, Conor O’Malley
 
-{% include video1.html id="A_zuHvBlvkA" %}  
+{% _include video1.html id="A_zuHvBlvkA" %}  
 
 
 <img src="https://user-images.githubusercontent.com/37058246/86720950-7aed8000-c060-11ea-921b-9ddee04c3e1d.png" width=60% height=60%>
