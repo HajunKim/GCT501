@@ -348,7 +348,8 @@ Finally, the presentation was practiced as a team to match the format of the pre
 
 //Describe what and how each member did.
 
-HaJun // For HAJUN
+HaJun - Leapmotion/ Presenter 
+Hajun was in charge of development of the leap motion part, which is tunning the parameters and sending values from go to python and made outline and flow for the PPT. 
 JaeKwon - Development
 JaeKwon was in charge of development of the main process and connecting with the accelerometer sensor.
 Conor - Digital Fabrication / 3D Printing
@@ -356,7 +357,7 @@ Conor designed and 3D printed the accelerometer sensor bracelet and the Raspberr
 
 
 
-###Demo 
+### Demo 
 
 <img src="http://img.youtube.com/vi/lOMEonkRy0w/0.jpg" width=30% height=30%>
 https://youtu.be/lOMEonkRy0w?t=0s
