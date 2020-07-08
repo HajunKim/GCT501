@@ -81,7 +81,7 @@ We chose raspberry pie as a small computer to process the value of the accelerom
 <img src="https://user-images.githubusercontent.com/37058246/86719625-357c8300-c05f-11ea-8070-ae5512f8fbf0.jpeg" width=15% height=15%>
 
 ###### Leap Motion
-eap Motion is a strong device that can senses human hand motion accurately in real time. Therefore it can deal with 3 dimensional interactions such as requiring x,y,z coordinates. It is being used in various prototype types around the world, provided with sufficient modules in various languages. However, due to frequent updates, most modules do not operate properly. It shows excellent performance against price, and not only tracks the coordinates of the hand, but also has the potential to implement various hand movements and forms as a function. However, leap motion tracking scope is limited due to its method, based on infrared cameras located at the top of the device. it is possible to trace up to 15 cm each directions(Front, Back, Right, Left).
+Leap Motion is a strong device that can senses human hand motion accurately in real time. Therefore it can deal with 3 dimensional interactions such as requiring x,y,z coordinates. It is being used in various prototype types around the world, provided with sufficient modules in various languages. However, due to frequent updates, most modules do not operate properly. It shows excellent performance against price, and not only tracks the coordinates of the hand, but also has the potential to implement various hand movements and forms as a function. However, leap motion tracking scope is limited due to its method, based on infrared cameras located at the top of the device. it is possible to trace up to 15 cm each directions(Front, Back, Right, Left).
 
 <img src="https://user-images.githubusercontent.com/37058246/86728028-fc481100-c066-11ea-80dc-0bafb65577fa.png" width=15% height=15%>
 
@@ -104,20 +104,42 @@ In the main process, it is repeated to receive the values of the leap motion and
 4-2. By received data from leap motion, it decides to change the parameters for reverberation and distortion which is in the object for playing instruments.
 
 ###### Leapmotion 
-The module, Gobot, offers diverse hand gesture functions that returns active value when the action is taken. However, due to the frequent update for the software of leap motion, it was not able to use those. <strong>We had to build up our own motion returns certain value.</strong> Since we wanted to make a special effect sound through leap motion, 3 respective motions mapping to each sounds was organized. It should have been very simple and easily understood to people, while at the same time showing the potential to be used in various ways depending on their preferences in the future. We conducted an experiment to see how the coordinates would be seen when the leap motion is being used.
-Based on these values, three actions were constructed. While the x and z values were fixed, only the y values were changed to make the sound of special effects(figure 1), and the x and z values were changed respectively to change the effects of sound to reverb and distortion. (figure 2,3)
+The module, Gobot, offers diverse hand gesture functions that returns active value when the action is taken. However, due to the frequent update for the software of leap motion, it was not able to use those. <strong>We had to build up our own motion returns certain value.</strong> Since we wanted to make a special effect sound through leap motion, 3 respective motions mapping to each sounds was organized. It should have been very simple and easily understood to people, while at the same time showing the potential to be used in various ways depending on their preferences in the future. 
+
+1. We conducted an experiment to see how the coordinates would be seen when the leap motion is being used.
+2. Based on these values, three actions were constructed. 
+3-1. While the x and z values were fixed, only the y values were changed to make the sound of special effects(figure 1)
+3-2. the x and z values were changed respectively to change the effects of sound to reverb and distortion. (figure 2,3)
 
 
 
-acc sensor
+###### acc sensor
 send
 To process the value of accelerometer sensor, unsupervised learning model was used. we train it ourselves. We made the dataset for the model by doing two types of motion with wearing the accelerometer sensor. This training model does the classification of motion.
+
 receive
 When program receives the data from accelerometer sensor, it returns the sound index. If it returns all the value right after return the motion value, then it makes a problem which plays the instrument sounds several times for one motion. To solve this problem, it is developed to ignore the 5 values right after sensing the motion. The number of ignored value can be different depending on calibration.
 connection with leap motion // For HAJUN
 
 connection with accelerometer sensor
 we used socket connection for sending the value of accelerometer sensor. Received part was developed to check the connection first before receiving the data continuously.
+
+```python3
+      self.ip = '192.168.1.248'
+      self.port = 8080
+      self.clientSock = socket(AF_INET, SOCK_STREAM)
+      self.clientSock.connect((self.ip, self.port))
+      print('연결 확인 됐습니다.')
+      self.clientSock.send('I am a client'.encode('utf-8'))
+      print('메시지를 전송했습니다.')
+      data = self.clientSock.recv(1024)
+      print('받은 데이터 : ', data.decode('utf-8'))
+
+      self.blockTheSignal = 0
+      self.blockNumber = 5
+
+```
+
 
 2. Fabrication  - 3D Print designs and fabrication was led by Conor. All 3D Prints were printed from Professor Ahn’s Ultimaker3 3D Printer. 
 The 3D print components were first designed in Blender and Meshmixer, Sliced in Cura and printed with flexible TPU Filament, which matched specifications for wearable devices. The supports were created with Breakaway Filament, allowing for fast removal when paired with the flexible TPU. 
