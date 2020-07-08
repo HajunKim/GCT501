@@ -98,17 +98,50 @@ Development was led by JaeKwon. HaJun was in charge of detecting motion by using
 #### main process 
 In the main process, it is repeated to receive the values of the leap motion and the accelerator sensor. The values received would be processed through the controller. 
 1. In the controller, the object for playing musical instruments is initiated.
+
 2. In this object, there are functions for playing musical instruments depending on index and changing the internal variable for the effects including reverberation and distortion. 
+
 3. The controller uses this object after deciding what to do by received data. 
 
 4-1. By received data from accelerometer sensor and leap motion, it decides to play musical instruments. 
 
 4-2. By received data from leap motion, it decides to change the parameters for reverberation and distortion which is in the object for playing instruments.
 
+```python3
+
+       class controller:
+    def __init__(self):
+        self.leapmotion = leapMotionSensor.leapMotionSensor()
+        self.play_sound = playSound.playSound()
+        self.acc = accSensor.accSensor()
+
+
+    def processLeapMotinoData(self, received_data):
+        if received_data == 3:
+            self.play_sound.playTheSynthSound()
+        elif received_data == 2:
+            self.play_sound.changeTheReverbActivated()
+        elif received_data == 1:
+            self.play_sound.changeTheDistortedActivated()
+
+    def processAccData(self,received_data):
+        if received_data != -1:
+            self.play_sound.playTheSound(received_data)
+
+    def mainProcess(self):
+        while True:
+            receive_from_leap = self.leapmotion.receiveData()
+            receive_from_acc = self.acc.receiveData()
+            self.processLeapMotinoData(receive_from_leap)
+            self.processAccData(receive_from_acc)
+
+```
+
 ###### Leapmotion 
 The module, Gobot, offers diverse hand gesture functions that returns active value when the action is taken. However, due to the frequent update for the software of leap motion, it was not able to use those. <strong>We had to build up our own motion returns certain value.</strong> Since we wanted to make a special effect sound through leap motion, 3 respective motions mapping to each sounds was organized. It should have been very simple and easily understood to people, while at the same time showing the potential to be used in various ways depending on their preferences in the future. 
 
 1. We conducted an experiment to see how the coordinates would be seen when the leap motion is being used.
+
 2. Based on these values, three actions were constructed. 
 
 3-1. While the x and z values were fixed, only the y values were changed to make the sound of special effects(figure 1)
@@ -119,16 +152,42 @@ The module, Gobot, offers diverse hand gesture functions that returns active val
 
 ###### acc sensor
 send
-To process the value of accelerometer sensor, unsupervised learning model was used. we train it ourselves. We made the dataset for the model by doing two types of motion with wearing the accelerometer sensor. This training model does the classification of motion.
+To process the value of accelerometer sensor, unsupervised learning model was used. we train it ourselves. We made the dataset for the model by doing two types of motion with wearing the accelerometer sensor. This training model does the classification of motion. (figure 4,5)
 
 receive
 When program receives the data from accelerometer sensor, it returns the sound index. If it returns all the value right after return the motion value, then it makes a problem which plays the instrument sounds several times for one motion. To solve this problem, it is developed to ignore the 5 values right after sensing the motion. The number of ignored value can be different depending on calibration.
+
+```python3
+
+       def receiveData(self):  # return -1: no acc motion , 0 : verticalMotion , 1: horizontalMotion , 2: circleMotion
+        # 1 stop - 1, 0 motion 0 , 3 motion 1 , 2 motion 2
+        receive = self.clientSock.recv(1024)[0]
+        print("receiveAccSensor : ", receive)
+        if (receive % 2) == 1:
+            receive = receive - 2
+        if receive == 2:
+            receive = 0
+
+        if self.blockTheSignal > 0:
+            self.blockTheSignal -= 1
+            return -1
+        else:
+            if receive != -1:
+                self.blockTheSignal = self.blockNumber
+
+        return receive
+
+```
+
+
 connection with leap motion // For HAJUN
+
 
 connection with accelerometer sensor
 we used socket connection for sending the value of accelerometer sensor. Received part was developed to check the connection first before receiving the data continuously.
 
 ```python3
+
       self.ip = '192.168.1.248'
       self.port = 8080
       self.clientSock = socket(AF_INET, SOCK_STREAM)
@@ -149,6 +208,9 @@ we used socket connection for sending the value of accelerometer sensor. Receive
 The 3D print components were first designed in Blender and Meshmixer, Sliced in Cura and printed with flexible TPU Filament, which matched specifications for wearable devices. The supports were created with Breakaway Filament, allowing for fast removal when paired with the flexible TPU. 
 The Wristband module was designed as one continuous piece that allowed for snapping in place. 
 The Armband was designed as three separate pieces, and used M3 screws to hold the two ends of the armbands to the center Pi Console. Then the Armband straps locked in place used snapback plastic design.
+
+
+<img src="https://user-images.githubusercontent.com/37058246/86719715-49c08000-c05f-11ea-8909-19cee48fcc7b.png" width=15% height=15%>
 
 
 3. Presentation - Presentation Slides and Organization was led by HaJun.
