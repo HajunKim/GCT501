@@ -222,7 +222,7 @@ class leapMotionSensor:
         return resultInt
 ```
 
-<img src="http://img.youtube.com/vi/RlQEoJaLQRA/0.jpg" width=30% height=10%>
+<img src="https://youtu.be/RlQEoJaLQRA?t=0s" width=30% height=10%>
 
 (http://img.youtube.com/vi/RlQEoJaLQRA/0.jpg)](https://youtu.be/RlQEoJaLQRA?t=0s) 
 
