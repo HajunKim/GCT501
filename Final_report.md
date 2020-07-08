@@ -4,7 +4,6 @@ The new way of designing with Music
 ------------
 Hajun Kim, Jaekwon Lim, Conor O’Malley
 
-{% _include video1.html id="A_zuHvBlvkA" %}  
 
 
 <img src="https://user-images.githubusercontent.com/37058246/86720950-7aed8000-c060-11ea-921b-9ddee04c3e1d.png" width=60% height=60%>
@@ -222,6 +221,15 @@ class leapMotionSensor:
 
         return resultInt
 ```
+
+<img src="http://img.youtube.com/vi/RlQEoJaLQRA/0.jpg(https://youtu.be/RlQEoJaLQRA?t=0s)" width=30% height=10%>
+
+(http://img.youtube.com/vi/RlQEoJaLQRA/0.jpg)](https://youtu.be/RlQEoJaLQRA?t=0s) 
+
+(http://img.youtube.com/vi/RlQEoJaLQRA/0.jpg)](https://youtu.be/RlQEoJaLQRA?t=0s) 
+
+(http://img.youtube.com/vi/RlQEoJaLQRA/0.jpg)](https://youtu.be/RlQEoJaLQRA?t=0s) 
+
 ###### acc sensor
 send
 To process the value of accelerometer sensor, unsupervised learning model was used. we train it ourselves. We made the dataset for the model by doing two types of motion with wearing the accelerometer sensor. This training model does the classification of motion. (figure 4,5)
