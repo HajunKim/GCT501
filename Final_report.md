@@ -148,16 +148,84 @@ The module, Gobot, offers diverse hand gesture functions that returns active val
 
 4. the x and z values were changed respectively to change the effects of sound to reverb and distortion. (figure 2,3)
 
-```Go 
+```GO
+ l.On(leap.HandEvent, func(data interface{}) {
+                        //almPosition = data.(leap.Hand).StabilizedPalmPosition
+                        PalmPosition = data.(leap.Hand).PalmPosition
+                        //fmt.Println(leap.Hand)
+                        //TelloQE.Store(data.((leap.Hand).R[0][0]-0.5)*10)//rotate
+                        if data.(leap.Hand).S < 1 {
+                                if PalmPosition[0] < -50{
+                                        PalmPosition[0]=-50}
+                                if PalmPosition[0] > 50{
+                                        PalmPosition[0]=50}
+                                PalmPosition[1] = PalmPosition[1]-150
+                                if PalmPosition[1] < -50{
+                                        PalmPosition[1]=-50}
+                                if PalmPosition[1] > 50{
+                                        PalmPosition[1]=50}
+                                if PalmPosition[2] < -50{
+                                        PalmPosition[2]=-50}
+                                if PalmPosition[2] > 50{
+                                        PalmPosition[2]=50}
+                                TelloAD.Store(PalmPosition[0]) //left right/*/10*/
+                                TelloJK.Store(PalmPosition[1])//up down/*/12-15*/
+                                TelloWS.Store(-(PalmPosition[2]))// forward backward  */8)*/
+                                /* rotation qe*/
+                        }
+                })
+```
+```python3
 
+import csv
 
+class leapMotionSensor:
+    def __init__(self):
+        print("leapMotionSenson object init")
+        self.prev_received_Data_from_leap = -1
+        self.thresholdIgnoreError = 1
+        self.isError = 0
+        self.blockTheSignal = 0
+        self.blockNumber = 10
 
+    def receiveData(self):
+        lst = [0, 0, 0, 0]
+        with open('test.csv', 'r') as file:
+            reader = csv.reader(file)
+            for row, x in enumerate(reader):
+                if row > 3 or row < 0:
+                    row = 3
+                lst[row] = int(float(x[0]))
+        result = -1
+        if (lst[0] == 0 and lst[1] == 0 and lst[2] == 0):
+            result = -1
+        elif (lst[0] < -40 and (-40 < lst[1] < 40) and (-40 < lst[2] < 40)):
+            result = 1
+        elif (lst[1] < -40 and (-40 < lst[0] < 40) and (-40 < lst[2] < 40)):
+            result = 2
+        elif (lst[2] < -40 and (-40 < lst[1] < 40) and (-40 < lst[0] < 40)):
+            result = 3
+
+        resultInt = int(result)
+
+        print("the leap motion value is", resultInt)
+
+        if self.blockTheSignal > 0:
+            self.blockTheSignal -= 1
+            return -1
+        else:
+            if resultInt != -1:
+                self.blockTheSignal = self.blockNumber
+
+        return resultInt
+```
 ###### acc sensor
 send
 To process the value of accelerometer sensor, unsupervised learning model was used. we train it ourselves. We made the dataset for the model by doing two types of motion with wearing the accelerometer sensor. This training model does the classification of motion. (figure 4,5)
 
 receive
 When program receives the data from accelerometer sensor, it returns the sound index. If it returns all the value right after return the motion value, then it makes a problem which plays the instrument sounds several times for one motion. To solve this problem, it is developed to ignore the 5 values right after sensing the motion. The number of ignored value can be different depending on calibration.
+
 
 ```python3
 
@@ -186,14 +254,17 @@ connection with leap motion
 We used csv file for sending certain motion value from GO language to python, Go language writes down the value in every 0.001 seconds and python read it by while statement. The implementation was seem working in real time.
 ```GO
 
-        rows := [][]string{
-		
-                {strconv.FormatFloat(s.ws,'f',5,64)},
-		{strconv.FormatFloat(s.ad,'f',5,64)},
-                {strconv.FormatFloat(s.jk,'f',5,64)},
-                {strconv.FormatFloat(s.sense,'f',5,64)},
+
+	rows := [][]string{
+
+	{strconv.FormatFloat(s.ws,'f',5,64)},
+	{strconv.FormatFloat(s.ad,'f',5,64)},
+	{strconv.FormatFloat(s.jk,'f',5,64)},
+	{strconv.FormatFloat(s.sense,'f',5,64)},
 	}
  
+       gobot.Every(5*time.Millisecond, func() {
+
 	csvfile, err := os.Create("test.csv")
  
 	if err != nil {
@@ -209,7 +280,7 @@ We used csv file for sending certain motion value from GO language to python, Go
 	csvwriter.Flush()
  
         csvfile.Close()
-
+	}
 ```
 connection with accelerometer sensor
 we used socket connection for sending the value of accelerometer sensor. Received part was developed to check the connection first before receiving the data continuously.
