@@ -78,7 +78,7 @@ Go bot is a strong library that requires very simple setting to be used. The mod
 ###### RasPi & Accelerometer
 We chose raspberry pie as a small computer to process the value of the accelerometer sensor and send it to the main process. we used mpu6050 as a sensor for motion of the user.
 
-<img src="https://user-images.githubusercontent.com/37058246/86719625-357c8300-c05f-11ea-8070-ae5512f8fbf0.jpeg" width=40% height=20%>
+<img src="https://user-images.githubusercontent.com/37058246/86719625-357c8300-c05f-11ea-8070-ae5512f8fbf0.jpeg" width=35% height=15%>
 
 ###### Leap Motion
 Leap Motion is a strong device that can senses human hand motion accurately in real time. Therefore it can deal with 3 dimensional interactions such as requiring x,y,z coordinates. It is being used in various prototype types around the world, provided with sufficient modules in various languages. However, due to frequent updates, most modules do not operate properly. It shows excellent performance against price, and not only tracks the coordinates of the hand, but also has the potential to implement various hand movements and forms as a function. However, leap motion tracking scope is limited due to its method, based on infrared cameras located at the top of the device. it is possible to trace up to 15 cm each directions(Front, Back, Right, Left).
